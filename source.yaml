@@ -1,4 +1,4 @@
-name: Hello Priya
+name: Welcome to github-actions
 on:
  push:
   branches:
