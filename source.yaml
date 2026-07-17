@@ -3,8 +3,7 @@ on:
  push:
   branches:
    - release
-  paths:
-    - .github/workflows/source.yaml
+  
 jobs:
  say-hello:
   runs-on: ubuntu-latest
