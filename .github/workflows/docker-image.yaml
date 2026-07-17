@@ -18,7 +18,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Check Secret Exists
         run: |
-         
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/java-app:latest .
+
+      - name: Check Secret Exists
+        run: | 
         
           if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
           echo "DOCKERHUB_USERNAME is missing"
@@ -26,3 +29,4 @@ jobs:
           else
           echo "DOCKERHUB_USERNAME is configured"
           fi
+    
