@@ -21,8 +21,9 @@ jobs:
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest .
       - name: Docker Push
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/pyapp:${{ github.sha }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/pyapp:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:${{ github.sha }}
+          
       - name: Check Secret Exists
         run: | 
         
