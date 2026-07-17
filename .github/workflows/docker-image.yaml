@@ -18,18 +18,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Docker Build
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest .
+          docker build \
+           -t ${{ secrets.DOCKER_USERNAME }}/pyapp:${{ github.sha }} \
+           -t ${{ secrets.DOCKER_USERNAME }}/pyapp:latest .
       - name: Docker Push
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:${{ github.sha }}
-          
-      - name: Check Secret Exists
-        run: | 
-        
-          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
-          echo "DOCKERHUB_USERNAME is missing"
-          exit 1
-          else
-          echo "DOCKERHUB_USERNAME is configured"
-          fi
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest
