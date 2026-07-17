@@ -19,7 +19,10 @@ jobs:
       - name: Docker Build
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest .
-
+      - name: Docker Push
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/pyapp:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/pyapp:latest
       - name: Check Secret Exists
         run: | 
         
@@ -29,4 +32,3 @@ jobs:
           else
           echo "DOCKERHUB_USERNAME is configured"
           fi
-    
