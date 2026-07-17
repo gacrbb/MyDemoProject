@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Print Build ID
-        run: echo "Build ID: ${{ github.run_id }}"
+    
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v4
@@ -27,3 +26,7 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:${{ github.sha }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest
+      
+      - name: Print Commit SHA
+        run: |
+         echo "Commit SHA: ${{ github.sha }}"
