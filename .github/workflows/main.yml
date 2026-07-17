@@ -1,9 +1,9 @@
-name: Hello World Pipeline
+name: Hello Master
 
 on:
   push:
     branches:
-      - main
+      - release
   
 jobs:
   hello-world:
