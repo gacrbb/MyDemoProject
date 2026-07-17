@@ -16,7 +16,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-     
-      - name: Build Docker Image
+      - name: Check Secret Exists
         run: |
-          docker build -t ganeshsahu/demo:latest .
+         
+        
+          if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then
+          echo "DOCKER_USERNAME is missing"
+          exit 1
+          else
+          echo "DOCKER_USERNAME is configured"
+          fi
