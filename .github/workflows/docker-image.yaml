@@ -16,9 +16,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Check Secret Exists
+      - name: Docker Build
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/java-app:latest .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pyapp:latest .
 
       - name: Check Secret Exists
         run: | 
