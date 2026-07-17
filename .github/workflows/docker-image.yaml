@@ -20,9 +20,9 @@ jobs:
         run: |
          
         
-          if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then
-          echo "DOCKER_USERNAME is missing"
+          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
+          echo "DOCKERHUB_USERNAME is missing"
           exit 1
           else
-          echo "DOCKER_USERNAME is configured"
+          echo "DOCKERHUB_USERNAME is configured"
           fi
