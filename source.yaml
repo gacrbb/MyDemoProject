@@ -10,4 +10,4 @@ jobs:
    - name: checkout code
      uses: actions/checkout@v4
    - name: Print Priya
-     run: echo "Hello Priya"
+     run: echo "Hello Dad"
